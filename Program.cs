@@ -25,10 +25,8 @@ foreach (string line in content)
             list.Add(new Fichero(linea,DateOnly.FromDateTime(tempDate), fileName,line));
         }
     }
-
-
 }
 
 list = list.OrderBy(x => x.Fecha).ToList();
-
+Console.WriteLine($"Se analizó el archivo '{filePath}', con {decimal.Parse(linea.ToString()).ToString("N0")} líneas. {Environment.NewLine}De todos los ficheros auditados se encontraros {list.Count} archivos que pueden ser ejecutables({string.Join(',',Procesar.extensionesEjecutables)}).\n\nHe aquí un deglose detallado.");
 Procesar.Files(list);

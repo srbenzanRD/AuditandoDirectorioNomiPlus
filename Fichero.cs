@@ -107,6 +107,6 @@ public class Procesar
         Functions.PrintHeader("TOTALES");
         PrintByType(ficheros);
         PrintByYear(ficheros);
-        Console.WriteLine($"Para un total de {ficheros.Count} archivos ejecutables");
+        //Console.WriteLine($"Para un total de {ficheros.Count} archivos ejecutables");
     }
 }
