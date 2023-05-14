@@ -3,6 +3,7 @@ using auditoria;
 using System.Globalization;
 using System.Runtime.CompilerServices;
 //Reemplazar por la ruta de archivo original.
+string exportTo = @"C:\auditoria\";
 string filePath = @"C:\auditoria\Resources\directorioNomiplus.txt";
 //Se procede a leer el archivo intacto y original a auditar.
 string[] content = File.ReadAllLines(filePath);
@@ -36,5 +37,7 @@ foreach (string line in content)
 list = list.OrderBy(x => x.Fecha).ToList();
 //Se hace un analicis inicial, de los datos globales.
 Console.WriteLine($"Se analizó el archivo '{filePath}', con {decimal.Parse(linea.ToString()).ToString("N0")} líneas. {Environment.NewLine}De todos los ficheros auditados se encontraros {list.Count} archivos que pueden ser ejecutables({string.Join(',',Procesar.extensionesEjecutables)}).\n\nHe aquí un deglose detallado.");
+//Separamos un arreglo para exportarlos a excel
+Exportar.ToExcel(list, $"{exportTo}FicherosDepurados");
 //Iniciamos el procesamiento global de los ficheros encontrados, para mostrar las estadisticas.
 Procesar.Files(list);

@@ -39,7 +39,7 @@ public class Procesar
         var isExecuteble = false;
         foreach (var _extention in extensionesEjecutables)
         {
-            if (file.ToLower().Contains(_extention)) return true;
+            if (file.ToLower().EndsWith(_extention)) return true;
         }
         return isExecuteble;
     }
