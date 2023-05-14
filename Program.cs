@@ -14,11 +14,6 @@ foreach (string line in content)
 {
     linea++;
     string[] row = line.Split(' ');
-    
-    if(linea == 47316)
-    {
-        Console.WriteLine(line);
-    }
     if (row[0] != null && row[0] != string.Empty)
     {
         DateTime tempDate = Convert.ToDateTime(row[0], culture);
