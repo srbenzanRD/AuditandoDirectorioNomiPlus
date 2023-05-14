@@ -1,10 +1,10 @@
 ﻿using static System.Net.Mime.MediaTypeNames;
 
 namespace auditoria;
-public record Fichero(DateOnly Fecha, string Archivo)
+public record Fichero(int linea,DateOnly Fecha, string Archivo,string LineaOriginal)
 {
-    public bool EsEjecutable => Procesar.IsExecute(Archivo);
-    public string Type => Procesar.GetExtention(Archivo);
+    public bool EsEjecutable => Procesar.IsExecute(LineaOriginal);
+    public string Type => Procesar.GetExtention(LineaOriginal);
 
 }
 public class Functions
