@@ -3,8 +3,8 @@
 namespace auditoria;
 public record Fichero(int linea,DateOnly Fecha, string Archivo,string LineaOriginal)
 {
-    public bool EsEjecutable => Procesar.IsExecute(LineaOriginal);
-    public string Type => Procesar.GetExtention(LineaOriginal);
+    public bool EsEjecutable => Procesar.IsExecute(Archivo);
+    public string Type => Procesar.GetExtention(Archivo);
 
 }
 public class Functions
@@ -45,13 +45,13 @@ public class Procesar
     }
     public static string GetExtention(string file)
     {
-
-        var isExecuteble = "";
         foreach (var _extention in extensionesEjecutables)
         {
-            if (file.ToLower().Contains(_extention)) return _extention;
+            if (file.ToLower().EndsWith(_extention)) return _extention;
         }
-        return isExecuteble;
+        var parts = file.Split(".");
+        var ex = parts[^1];
+        return ex;
     }
     public static void PrintByType(List<Fichero> ficheros)
     {

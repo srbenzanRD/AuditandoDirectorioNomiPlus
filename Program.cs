@@ -25,7 +25,7 @@ foreach (string line in content)
         //Se Obtiene el nombre del fichero o extension, segun la ultima columna obtenida de la data. 
         string fileName = row[^1];
         //Se depuran las lineas para seleccionar las que tengan o posean informacion exclusiva sobre lo que buscamos (ejecutables).
-        if (Procesar.IsExecute(fileName) || Procesar.IsExecute(line))
+        if (Procesar.IsExecute(fileName))
         {
             //Si coincide lo agregamos a la lista, con el numero de la linea, fecha,nombre del archivo y la linea original del archivo auditado.
             list.Add(new Fichero(linea,DateOnly.FromDateTime(tempDate), fileName,line));
